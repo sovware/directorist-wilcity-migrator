@@ -2,6 +2,7 @@
 
 namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Helper;
 
+use stdClass;
 use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Model\Listings_Model;
 
 class Listings_Data_Helper {
@@ -487,7 +488,8 @@ class Listings_Data_Helper {
      */
     public static function get_importable_categories( $listing_id ) {
 
-        $instance = Connections_Directory();
+        $instance = new stdClass();
+        // $instance = Connections_Directory();
         $categories = $instance->retrieve->entryCategories( $listing_id );
 
         $importable_categories = [];

@@ -14,10 +14,12 @@ class Init {
     /**
      * Setup
      */
-    public function setup() {
-        if ( ! is_plugin_active( 'wilcity/wilcity.php' ) ) {
+    public function setup() {  
+     
+        if ( ! is_plugin_active( 'wiloke-listing-tools/wiloke-listing-tools.php' ) ) {
             return;
         }
+
 
         $this->Init();
     }

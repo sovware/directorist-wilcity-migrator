@@ -9,6 +9,11 @@ class Serve {
         foreach( $services as $service ) {
 
             if ( ! class_exists( $service ) ) {
+
+                // var_dump( $service );
+                // echo '<br>';
+                // die( __FILE__ );
+
                 continue;
             }
 

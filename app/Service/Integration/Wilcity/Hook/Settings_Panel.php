@@ -57,7 +57,7 @@ class Settings_Panel {
             ],
         ];
         
-        //return $sections;
+        return $sections;
     }
 
 }

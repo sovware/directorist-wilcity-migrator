@@ -31,7 +31,9 @@ if ( ! function_exists( 'Wilcity_To_Directorist_Migrator' ) ) {
     }
 }
 
-add_action( 'directorist_loaded', 'Wilcity_To_Directorist_Migrator' );
+Wilcity_To_Directorist_Migrator();
+
+// add_action( 'directorist_loaded', 'Wilcity_To_Directorist_Migrator' );
 
 
 
