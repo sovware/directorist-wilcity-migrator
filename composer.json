@@ -1,0 +1,20 @@
+{
+    "name": "wilcity-to-directorist-migrator/wilcity-to-directorist-migrator",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Connections_To_Directorist_Migrator\\": "app/"
+        },
+        "files": [ 
+            "helper/const.php", 
+            "helper/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "wpWax",
+            "email": "contact@wpwax.com"
+        }
+    ],
+    "require": {}
+}
