@@ -1,9 +1,9 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Hook;
 
-use Connections_To_Directorist_Migrator\Service\Integration\Connections\Helper\Listings_Data_Helper;
-use Connections_To_Directorist_Migrator\Service\Integration\Connections\Model\Listings_Model;
+use Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Helper\Listings_Data_Helper;
+use Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Model\Listings_Model;
 
 class Listings_Importer_Template_Override {
 

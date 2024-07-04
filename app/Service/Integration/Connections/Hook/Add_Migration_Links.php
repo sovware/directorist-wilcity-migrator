@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Hook;
 
 use Connections_To_Directorist_Migrator\Helper\Links;
 
@@ -44,7 +44,7 @@ class Add_Migration_Links {
     public static function get_all_listings_page_script_data() {
         $actions = [
             'migrate-from-wilcity' => [
-                'label' => __( 'Migrate from Connections', 'wilcity-to-directorist-migrator' ),
+                'label' => __( 'Migrate from Wilcity', 'wilcity-to-directorist-migrator' ),
                 'link'  => Links::get_listings_migration_mapping_page_url(),
             ],
         ];

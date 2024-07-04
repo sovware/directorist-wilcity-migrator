@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Hook;
 
 use Connections_To_Directorist_Migrator\Helper\Links;
 
@@ -46,7 +46,7 @@ class Settings_Panel {
     public function extend_settings_panel_sections( $sections = [] ) {
 
         $sections['new_section'] = [
-            'label' => __('Connections to Directorist Migration', 'directorist'),
+            'label' => __('Wilcity to Directorist Migration', 'directorist'),
             'icon' => '<i class="fas fa-sync-alt"></i>',
             'sections' => [
                 'general_settings' => [

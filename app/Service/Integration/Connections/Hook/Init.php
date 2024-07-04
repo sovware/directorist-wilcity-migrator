@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Connections\Hook;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Hook;
 
 use Connections_To_Directorist_Migrator\Helper;
 

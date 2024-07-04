@@ -119,7 +119,7 @@ function connections_to_directorist_migrator_include_dir_files( $dir_path = '' )
 }
 
 /**
- * Connections To Directorist Migrator Maybe Selected
+ * Wilcity To Directorist Migrator Maybe Selected
  * 
  * @param mixed $value_1
  * @param mixed $value_2
@@ -161,7 +161,7 @@ function c2dm_maybe_selected_importing_listings_map_field( $listing_field_key, $
 }
 
 /**
- * Connections To Directorist Migrator Maybe Selected
+ * Wilcity To Directorist Migrator Maybe Selected
  * 
  * @param mixed $value_1
  * @param mixed $value_2

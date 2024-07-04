@@ -8,9 +8,9 @@
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       Connections to Directorist Migrator
+ * Plugin Name:       Wilcity to Directorist Migrator
  * Plugin URI:        https://wordpress.org/plugins/wilcity-to-directorist-migrator/
- * Description:       Connections to Directorist Migrator is a migrator plugin that moves your listings data from Connections Business Directory to Directorist.
+ * Description:       Wilcity to Directorist Migrator is a migrator plugin that moves your listings data from Wilcity Business Directory to Directorist.
  * Version:           0.1.2
  * Requires at least: 5.2
  * Requires PHP:      7.2

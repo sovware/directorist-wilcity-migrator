@@ -19,7 +19,7 @@ class Init {
      */
     protected function get_controllers() {
         return [
-            Connections\Init::class,
+            Wilcity\Init::class,
         ];
     }
 

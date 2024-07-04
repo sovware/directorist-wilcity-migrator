@@ -13,11 +13,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../app/Service/Integration/Connections/Hook/Add_Migration_Links.php:47
-msgid "Migrate from Connections"
+#: ../app/Service/Integration/Wilcity/Hook/Add_Migration_Links.php:47
+msgid "Migrate from Wilcity"
 msgstr ""
 
-#: ../app/Service/Integration/Connections/Hook/Add_Migration_Links.php:71
+#: ../app/Service/Integration/Wilcity/Hook/Add_Migration_Links.php:71
 msgid "Start Migrating"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgid "Directorist Update is Incomplete"
 msgstr ""
 
 #: ../app.php:65
-msgid "<b>Connections to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work"
+msgid "<b>Wilcity to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work"
 msgstr ""
 
 #: ../app.php:90, ../app.php:99

@@ -1,9 +1,9 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Connections;
+namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity;
 
 use Connections_To_Directorist_Migrator\Helper;
-use Connections_To_Directorist_Migrator\Service\Integration\Connections;
+use Connections_To_Directorist_Migrator\Service\Integration\Wilcity;
 
 class Init {
     
@@ -48,7 +48,7 @@ class Init {
      */
     protected function get_controllers() {
         return [
-            Connections\Hook\Init::class,
+            Wilcity\Hook\Init::class,
         ];
     }
 
