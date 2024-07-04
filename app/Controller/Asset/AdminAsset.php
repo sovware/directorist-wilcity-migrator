@@ -1,8 +1,8 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Controller\Asset;
+namespace Wilcity_To_Directorist_Migrator\Controller\Asset;
 
-use Connections_To_Directorist_Migrator\Service;
+use Wilcity_To_Directorist_Migrator\Service;
 
 class AdminAsset extends AssetEnqueuer {
 	

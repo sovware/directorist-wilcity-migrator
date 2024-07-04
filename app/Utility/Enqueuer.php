@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Utility;
+namespace Wilcity_To_Directorist_Migrator\Utility;
 
 abstract class Enqueuer {
 

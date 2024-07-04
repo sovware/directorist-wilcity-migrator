@@ -1,9 +1,9 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity;
+namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity;
 
-use Connections_To_Directorist_Migrator\Helper;
-use Connections_To_Directorist_Migrator\Service\Integration\Wilcity;
+use Wilcity_To_Directorist_Migrator\Helper;
+use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity;
 
 class Init {
     

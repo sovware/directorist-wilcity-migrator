@@ -1,8 +1,8 @@
 <?php
 /**
- * Connections_To_Directorist_Migrator
+ * Wilcity_To_Directorist_Migrator
  *
- * @package           Connections_To_Directorist_Migrator
+ * @package           Wilcity_To_Directorist_Migrator
  * @author            wpWax
  * @copyright         2022 wpWax
  * @license           GPL-2.0-or-later
@@ -24,13 +24,14 @@
 require dirname( __FILE__ ) . '/vendor/autoload.php';
 require dirname( __FILE__ ) . '/app.php';
 
-if ( ! function_exists( 'Connections_To_Directorist_Migrator' ) ) {
-    function Connections_To_Directorist_Migrator() {
-        return Connections_To_Directorist_Migrator::get_instance();
+if ( ! function_exists( 'Wilcity_To_Directorist_Migrator' ) ) {
+    // die(class_exists('Wilcity_To_Directorist_Migrator'));
+    function Wilcity_To_Directorist_Migrator() {
+        return Wilcity_To_Directorist_Migrator::get_instance();
     }
 }
 
-add_action( 'directorist_loaded', 'Connections_To_Directorist_Migrator' );
+add_action( 'directorist_loaded', 'Wilcity_To_Directorist_Migrator' );
 
 
 

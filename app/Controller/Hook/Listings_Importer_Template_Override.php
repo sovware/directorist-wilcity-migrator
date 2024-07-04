@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Controller\Hook;
+namespace Wilcity_To_Directorist_Migrator\Controller\Hook;
 
 class Listings_Importer_Template_Override {
 

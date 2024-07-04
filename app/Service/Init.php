@@ -1,8 +1,8 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service;
+namespace Wilcity_To_Directorist_Migrator\Service;
 
-use Connections_To_Directorist_Migrator\Helper;
+use Wilcity_To_Directorist_Migrator\Helper;
 
 class Init {
     

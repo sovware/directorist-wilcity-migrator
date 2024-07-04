@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Model;
+namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Model;
 
 class Listings_Model {
 

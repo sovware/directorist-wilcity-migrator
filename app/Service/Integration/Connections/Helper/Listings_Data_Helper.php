@@ -1,8 +1,8 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Helper;
+namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Helper;
 
-use Connections_To_Directorist_Migrator\Service\Integration\Wilcity\Model\Listings_Model;
+use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Model\Listings_Model;
 
 class Listings_Data_Helper {
 

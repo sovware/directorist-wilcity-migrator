@@ -62,7 +62,7 @@ final class Connections_To_Directorist_Migrator {
 	 */
     public function show_incompatibility_notice() {
         $title   = __( 'Directorist Update is Incomplete', 'wilcity-to-directorist-migrator' );
-        $message = __( '<b>Wilcity to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work', 'wilcity-to-directorist-migrator' );
+        $message = __( '<b>Connections to Directorist Migrator</b> extension requires <b>Directorist 7.2.1</b> or higher to work', 'wilcity-to-directorist-migrator' );
 
         ?>
         <div class="notice notice-error">

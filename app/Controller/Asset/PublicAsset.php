@@ -1,6 +1,6 @@
 <?php
 
-namespace Connections_To_Directorist_Migrator\Controller\Asset;
+namespace Wilcity_To_Directorist_Migrator\Controller\Asset;
 
 class PublicAsset extends AssetEnqueuer {
 	
