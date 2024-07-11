@@ -3,7 +3,6 @@
 use Wilcity_To_Directorist_Migrator\Controller;
 use Wilcity_To_Directorist_Migrator\Service;
 use Wilcity_To_Directorist_Migrator\Helper;
-
 final class Wilcity_To_Directorist_Migrator {
 
     private static $instance;
@@ -30,7 +29,7 @@ final class Wilcity_To_Directorist_Migrator {
         Helper\Serve::register_services( $controllers );
 
     }
-
+    
     /**
      * Get Instance
      * 

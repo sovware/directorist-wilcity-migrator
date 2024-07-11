@@ -4,11 +4,49 @@ namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity;
 
 use Wilcity_To_Directorist_Migrator\Helper;
 use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity;
+use WilokeListingTools\Framework\Helpers\GetSettings;
+use \Directorist\Multi_Directory\Multi_Directory_Manager;
 
 class Init {
     
     public function __construct() {
         add_action( 'plugins_loaded', [ $this, 'setup' ] );
+
+        add_action( 'admin_init', [ $this, 'init_listing_type_migration' ] );
+
+    }
+
+    public function init_listing_type_migration() {
+        
+        if ( ! is_plugin_active( 'directorist/directorist-base.php' ) ) {
+            return;
+        }
+
+        $aCustomPostTypes = GetSettings::getOptions(wilokeListingToolsRepository()->get('addlisting:customPostTypesKey'));
+        
+        if( ! $aCustomPostTypes ) {
+            return;
+        }
+
+        $file = DIRECTORIST_ASSETS_DIR . 'sample-data/directory/directory.json';
+        
+        if ( ! file_exists( $file ) ) { return; }
+        
+        $file_contents = file_get_contents( $file );
+
+        if ( ! function_exists( 'ATBDP' ) ) { return; }
+
+        $multi_directory_manager = ATBDP()->multi_directory_manager;
+        $multi_directory_manager->prepare_settings();
+
+        foreach( $aCustomPostTypes as $post_type ) {
+            $multi_directory_manager->add_directory([
+                'directory_name' => $post_type['name'],
+                'fields_value'   => $file_contents,
+                'is_json'        => true
+            ]);
+        }
+
     }
 
     /**

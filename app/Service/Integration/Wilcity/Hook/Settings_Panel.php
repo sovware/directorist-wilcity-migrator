@@ -18,6 +18,7 @@ class Settings_Panel {
         
     }
 
+
     /**
      * Extend Settings Panel Fields
      * 

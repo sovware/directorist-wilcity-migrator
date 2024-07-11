@@ -5,6 +5,7 @@ namespace Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Hook;
 use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Helper\Listings_Data_Helper;
 use Wilcity_To_Directorist_Migrator\Service\Integration\Wilcity\Model\Listings_Model;
 
+
 class Listings_Importer {
 
     /**

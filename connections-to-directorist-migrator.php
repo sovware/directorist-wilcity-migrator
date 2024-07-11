@@ -27,14 +27,11 @@ require dirname( __FILE__ ) . '/app.php';
 if ( ! function_exists( 'Wilcity_To_Directorist_Migrator' ) ) {
     // die(class_exists('Wilcity_To_Directorist_Migrator'));
     function Wilcity_To_Directorist_Migrator() {
+
         return Wilcity_To_Directorist_Migrator::get_instance();
     }
 }
 
-Wilcity_To_Directorist_Migrator();
+// Wilcity_To_Directorist_Migrator();
 
-// add_action( 'directorist_loaded', 'Wilcity_To_Directorist_Migrator' );
-
-
-
-
+add_action( 'plugins_loaded', 'Wilcity_To_Directorist_Migrator', 11 );
