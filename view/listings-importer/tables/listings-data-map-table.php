@@ -5,28 +5,31 @@
 <table class="widefat atbdp-importer-mapping-table">
     <thead>
         <tr>
-            <th><?php esc_html_e('Column name', 'directorist'); ?></th>
-            <th><?php esc_html_e('Map to field', 'directorist'); ?></th>
+            <th><?php esc_html_e('Wilcity', 'directorist'); ?></th>
+            <th><?php esc_html_e('Directorist', 'directorist'); ?></th>
         </tr>
     </thead>
     
     <tbody>
-        <?php if ( is_array( $data['headers'] ) ) :
-            foreach ( $data['headers'] as $header_label => $header_sample ) : ?>
+        <?php 
+        if ( is_array( $data['headers'] ) ) :
+            foreach ( $data['headers'] as $value ) : 
+                $header_label = $value['label'];
+            ?>
                 <tr>
                     <td class="atbdp-importer-mapping-table-name">
-                        <p><?php echo esc_html( $header_label ); ?></p>
+                        <p><?php echo esc_html( $value['key'] ); ?></p>
 
-                        <?php if ( ! empty( $header_sample ) ) : ?>
+                        <?php if ( ! empty( $value['label'] ) ) : ?>
                         <span class="description">
                             <?php esc_html_e( 'Sample:', 'directorist' ); ?> 
-                            <code><?php echo esc_html( $header_sample ); ?></code>
+                            <code><?php echo esc_html( $value['label'] ); ?></code>
                         </span>
                         <?php endif; ?>
                     </td>
 
                     <td class="atbdp-importer-mapping-table-field">
-                        <input type="hidden" name="map_from[<?php echo esc_attr( $header_label ); ?>]" value="<?php echo esc_attr( $header_sample ); ?>" />
+                        <input type="hidden" name="map_from[<?php echo esc_attr( $value['key'] ); ?>]" value="<?php echo esc_attr( $value['key'] ); ?>" />
                         
                         <select class="atbdp_map_to" name="<?php echo esc_attr( $header_label ); ?>">
                             <option value=""><?php esc_html_e('Do not import', 'directorist'); ?></option>

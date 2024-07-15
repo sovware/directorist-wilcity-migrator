@@ -78,6 +78,31 @@ function connections_to_directorist_migrator_get_the_view( $path = '', $data = [
  * @param bool $extract_data
  * @param string $base_path
  * 
+ * @return void Template
+ */
+function connections_to_directorist_migrator_get_the_view_path( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {
+
+    $file = $base_path . $path . '.php';
+
+    if ( ! file_exists( $file ) ) {
+        return '';
+    }
+
+    if ( $extract_data ) {
+        extract( $data );
+    }
+    
+    return $file;
+}
+
+/**
+ * Drectorist Migrator Get View
+ * 
+ * @param string $path
+ * @param array $data
+ * @param bool $extract_data
+ * @param string $base_path
+ * 
  * @return void|string Template
  */
 function connections_to_directorist_migrator_get_view( $path = '', $data = [], $extract_data = true, $base_path = CONNECTIONS_TO_DIRECTORIST_MIGRATOR_VIEW_PATH ) {

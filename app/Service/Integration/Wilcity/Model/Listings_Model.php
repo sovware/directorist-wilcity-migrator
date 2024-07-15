@@ -13,16 +13,14 @@ class Listings_Model {
     public static function get_listings( $atts = [] ) {
 
         $default = [
-            'status' => [ 'approved, pending' ],
-            'limit'  => 10,
+            'post_status'   => 'publish',
         ];
 
         $atts = array_merge( $default, $atts );
 
         $atts = apply_filters( 'directorist_migrator_listings_query_args', $atts, DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID );
 
-        $instance = Connections_Directory();
-        $results  = $instance->retrieve->entries( $atts );
+        $results = get_posts( $atts );
         
         return $results;
     }
@@ -34,6 +32,9 @@ class Listings_Model {
      * @return int Max Repetitive Fields Count
      */
     public static function get_listings_max_repetitive_fields_count( $field_name = '' ) {
+
+        return [];
+
         global $wpdb;
 
         $repetitive_field_map = [

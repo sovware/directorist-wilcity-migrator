@@ -12,6 +12,12 @@ function Tasks() {
     return {
         init: function() {
             this.handleListingsImportSourceNavLink();
+            this.handleDirectoryTypeSwitching();
+        },
+
+
+        handleDirectoryTypeSwitching: function() {
+            console.log('its mee bro');
         },
 
         handleListingsImportSourceNavLink: function() {

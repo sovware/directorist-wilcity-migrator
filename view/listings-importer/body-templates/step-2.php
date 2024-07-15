@@ -1,10 +1,11 @@
-<?php defined( 'ABSPATH' ) || exit; ?>
+<?php defined( 'ABSPATH' ) || exit; 
+?>
 
 <div class="csv-wrapper">
 	<div class="csv-center csv-fields">
 		<form class="atbdp-progress-form-content directorist-importer" id="atbdp_csv_step_two" method="post">
 			<header>
-                <h2><?php esc_html_e('Map fields to listings', 'directorist'); ?></h2>
+                <h2><?php esc_html_e('Map Wilcity Listing fields with Directorist', 'directorist'); ?></h2>
 				<p><?php esc_html_e('Select Directorist fields to map it against your listings fields, leave it as "Do not import" to skip certain fields.', 'directorist'); ?></p>
 
 				<p>
@@ -14,18 +15,20 @@
 
 			<div class="form-content">
 				<section class="atbdp-importer-mapping-table-wrapper">
-					<h3><?php printf( __( 'Total %s item(s) found ', 'directorist' ), $data['total_listings']); ?></h3>
+					<h3><?php printf( __( 'Directory types has been imported automatically. You may need to add some custom fields from %s', 'directorist' ), '<a target="_blank" href="'. admin_url('edit.php?post_type=at_biz_dir&page=atbdp-directory-types') . '">directory builder</a>'); ?></h3>
 					<div class="directory_type_wrapper">
 						<?php if ( count( directory_types() ) > 1 ) { ?>
                             <label for="directory_type"><?php esc_html_e('Select Directory', 'directorist'); ?></label>
                             <select name="directory_type" id="directory_type">
                                 <option value="">--Select--</option>
-                                <?php foreach( directory_types() as $term ) {
+                                <?php 
+								foreach( directory_types() as $term ) {
                                     $default = get_term_meta( $term->term_id, '_default', true ); ?>
                                         <option <?php echo ! empty( $default ) ? 'selected' : ''; ?> value="<?php echo esc_attr( $term->term_id); ?>"><?php echo esc_attr( $term->name ); ?></option>
                                 <?php } ?>
                             </select>
 						<?php }
+							// e_var_dump($data);
                             // Listings Data Map
                             $data['controller']->listings_importer_listings_data_map_table_template( $data['listings_data_map'] );
                         ?>

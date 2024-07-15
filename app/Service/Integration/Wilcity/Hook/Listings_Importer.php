@@ -26,20 +26,29 @@ class Listings_Importer {
      * 
      * @return int Total Listings
      */
-    public function listings_importing_posts( $posts = [], $position = 0, $limit = 20, $request = [] ) {
+    public function listings_importing_posts( $posts = [], $position = 0, $limit = 20, $request ) {
 
         $current_listing_import_source = ( isset( $request['listing_import_source'] ) ) ? $request['listing_import_source'] : '';
 
         if ( DIRECTORIST_MIGRATOR_INTEGRATION_CONNECTIONS_ID !== $current_listing_import_source ) {
             return $posts;
         }
-
+        $directory_type = isset( $request['directory_type'] ) ? $request['directory_type'] : '';
+        $post_type = get_term_meta( $directory_type, 'migrated_from', true );
         $atts = [
-            'offset' => $position,
-            'limit'  => $limit,
+            'posts_per_page'  => $limit,
+            'paged' => $position,
+            'post_type' => $post_type,
         ];
 
         $posts = Listings_Model::get_listings( $atts );
+
+        wp_send_json([
+            'error' => true,
+            'posts' => $posts,
+            'atts' => $atts,
+            'request' => $request,
+        ]);
 
         if ( empty( $posts ) ) {
             return $posts;
