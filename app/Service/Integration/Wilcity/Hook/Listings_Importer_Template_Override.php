@@ -17,8 +17,8 @@ class Listings_Importer_Template_Override {
         add_filter( 'directorist_migrator_total_importing_listings', [ $this, 'total_importing_listings' ], 20, 2 );
         add_filter( 'directorist_migrator_importing_listings_data_map', [ $this, 'importing_listings_data_map' ], 20, 2 );
 
-    }
 
+    }
 
     /**
      * Total Importing Listings

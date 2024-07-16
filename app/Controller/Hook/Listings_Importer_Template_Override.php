@@ -25,7 +25,93 @@ class Listings_Importer_Template_Override {
 
         add_action( 'init', [$this, 'setup_fields'] );
 
+        add_filter( 'wp_ajax_directorist_to_wilcity_mapping', [ $this, 'directorist_to_wilcity_mapping' ] );
 
+
+    }
+
+    public function directorist_to_wilcity_mapping() {
+        
+        ob_start();
+
+        // echo "<h2>Hello World</h2>";
+        // wp_send_json(['response' => ob_get_clean() ] );
+        
+        $template_data['controller'] = $this;
+
+        $aCustomPostTypes = GetSettings::getOptions(wilokeListingToolsRepository()->get('addlisting:customPostTypesKey'));
+
+        if( ! $aCustomPostTypes ) {
+            return '';
+        }
+
+        $default_post_type = $aCustomPostTypes[0]['slug'];
+
+        $directory_type = ! empty( $_POST['directory_type'] ) ? $_POST['directory_type'] : '';
+        $post_type = get_term_meta( $directory_type, 'migrated_from', true );
+
+        $post_type = ! empty( $post_type ) ? $post_type : $default_post_type;
+
+        $fields    = directorist_get_form_fields_by_directory_type( 'id', $directory_type );
+
+        $this->importable_fields[ 'publish_date' ]   = esc_html__( 'Publish Date', 'directorist' );
+        $this->importable_fields[ 'listing_status' ] = esc_html__( 'Listing Status', 'directorist' );
+
+        if ( empty( $fields ) || ! is_array( $fields ) ) {
+            return;
+        }
+
+        foreach( $fields as $field ) {
+            $field_key  = !empty( $field['field_key'] ) ? $field['field_key'] : '';
+            $label      = !empty( $field['label'] ) ? $field['label'] : '';
+            if( 'tax_input[at_biz_dir-location][]'  == $field_key ) {  $field_key = 'location'; }
+            if( 'admin_category_select[]'           == $field_key ) {  $field_key = 'category';  }
+            if( 'tax_input[at_biz_dir-tags][]'      == $field_key ) { $field_key = 'tag'; }
+
+            if ( isset( $field['widget_name'] ) ) {
+                if( 'pricing' == $field['widget_name'] ) {
+                    $this->importable_fields[ 'price' ] = esc_html__( 'Price', 'directorist' );
+                    $this->importable_fields[ 'price_range' ] = esc_html__( 'Price Range', 'directorist' );
+                    continue;
+                    }
+                if( 'map' == $field['widget_name'] ) {
+                    $this->importable_fields[ 'manual_lat' ] = esc_html__( 'Map Latitude', 'directorist' );
+                    $this->importable_fields[ 'manual_lng' ] = esc_html__( 'Map Longitude', 'directorist' );
+                    $this->importable_fields[ 'hide_map' ]   = esc_html__( 'Hide Map', 'directorist' );
+                    continue;
+                }
+            }
+
+            $this->importable_fields[ $field_key ] = $label;
+        }
+
+        $availableKey = General::getUsedSectionKey($post_type);
+        // $availableKey = General::getUsedSectionKey('event');
+        $aAvailablePlans = GetSettings::getOptions($availableKey, false, true);
+
+
+        $result = [];
+
+        foreach ($aAvailablePlans as $item) {
+            if (isset($item['fieldGroups'])) {
+                foreach ($item['fieldGroups'] as $key => $field) {
+                    $result[] = [
+                        'key' => $field['key'],
+                        'label' => isset( $field['label'] ) ? $field['label'] : ''
+                    ];
+                }
+            }
+        }
+
+        $template_data['headers'] = $result;
+        $template_data['fields']  = $this->importable_fields;
+
+
+        connections_to_directorist_migrator_get_the_view( 'listings-importer/tables/listings-data-map-table', $template_data, false );
+        
+        wp_send_json([
+        'response' => ob_get_clean(),
+        ]);
     }
 
 
@@ -208,7 +294,6 @@ class Listings_Importer_Template_Override {
 
         $template_data['data']  = $template_data;
 
-        // return connections_to_directorist_migrator_get_view( 'listings-importer/body-templates/step-2', $template_data, false );
         return connections_to_directorist_migrator_get_the_view_path( 'listings-importer/body-templates/step-2', $template_data, false );
     }
 

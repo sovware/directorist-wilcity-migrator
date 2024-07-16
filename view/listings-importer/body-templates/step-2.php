@@ -3,7 +3,7 @@
 
 <div class="csv-wrapper">
 	<div class="csv-center csv-fields">
-		<form class="atbdp-progress-form-content directorist-importer" id="atbdp_csv_step_two" method="post">
+		<form class="atbdp-progress-form-content directorist-importer" id="directorist_wilcity_migrator" method="post">
 			<header>
                 <h2><?php esc_html_e('Map Wilcity Listing fields with Directorist', 'directorist'); ?></h2>
 				<p><?php esc_html_e('Select Directorist fields to map it against your listings fields, leave it as "Do not import" to skip certain fields.', 'directorist'); ?></p>
@@ -18,8 +18,8 @@
 					<h3><?php printf( __( 'Directory types has been imported automatically. You may need to add some custom fields from %s', 'directorist' ), '<a target="_blank" href="'. admin_url('edit.php?post_type=at_biz_dir&page=atbdp-directory-types') . '">directory builder</a>'); ?></h3>
 					<div class="directory_type_wrapper">
 						<?php if ( count( directory_types() ) > 1 ) { ?>
-                            <label for="directory_type"><?php esc_html_e('Select Directory', 'directorist'); ?></label>
-                            <select name="directory_type" id="directory_type">
+                            <label for="directorist_migrator_directory_type"><?php esc_html_e('Select Directory', 'directorist'); ?></label>
+                            <select name="directory_type" id="directorist_migrator_directory_type">
                                 <option value="">--Select--</option>
                                 <?php 
 								foreach( directory_types() as $term ) {
@@ -30,7 +30,9 @@
 						<?php }
 							// e_var_dump($data);
                             // Listings Data Map
+							echo '<div class="directorist_data_mapping">';
                             $data['controller']->listings_importer_listings_data_map_table_template( $data['listings_data_map'] );
+							echo '</div>';
                         ?>
 					</div>
 				</section>
@@ -39,7 +41,7 @@
 			<div class="atbdp-actions">
 				<input type="hidden" class="directorist-listings-importer-config-field" name="total_post" value="<?php echo esc_attr( apply_filters( 'directorist_migrator_total_importing_listings', 0, $data['controller']->get_current_listing_import_source() ) ); ?>">
 				<input type="hidden" class="directorist-listings-importer-config-field" name="listing_import_source" value="<?php echo esc_attr( $data['controller']->get_current_listing_import_source() ); ?>">
-				<button type="submit" class="button btn-run-importer" value="<?php esc_attr_e('Run the importer', 'directorist'); ?>" name="save_step_two"><?php esc_html_e('Run the importer', 'directorist'); ?></button>
+				<button type="submit" class="button" value="<?php esc_attr_e('Run the importer', 'directorist'); ?>" name="save_step_two"><?php esc_html_e('Run the importer', 'directorist'); ?></button>
 				<?php wp_nonce_field('directorist-csv-importer'); ?>
 			</div>
 		</form>

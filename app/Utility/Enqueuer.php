@@ -102,17 +102,20 @@ abstract class Enqueuer {
 
 		foreach( $args['scripts'] as $handle => $script_args ) {
 
-			if ( ! $this->can_enqueue_asset( $handle, $script_args, $args ) ) {
-				continue;
-			}
+			// var_dump( $script_args );
+
+			// if ( ! $this->can_enqueue_asset( $handle, $script_args, $args ) ) {
+			// 	continue;
+			// }
 
 			if ( ! empty( $script_args['before_enqueue'] ) ) {
 				$this->handle_script_before_enqueue_task( $script_args['before_enqueue'] );
 			}
 
-			wp_enqueue_script( $handle );
+			wp_enqueue_script( $handle, $script_args );
 			$this->add_localize_data_to_script( $handle, $script_args );
 		}
+		// die;
 	}
 
 	// can_enqueue_asset

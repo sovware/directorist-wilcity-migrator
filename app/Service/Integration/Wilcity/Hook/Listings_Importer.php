@@ -26,7 +26,7 @@ class Listings_Importer {
      * 
      * @return int Total Listings
      */
-    public function listings_importing_posts( $posts = [], $position = 0, $limit = 20, $request ) {
+    public function listings_importing_posts( $posts, $position, $limit, $request ) {
 
         $current_listing_import_source = ( isset( $request['listing_import_source'] ) ) ? $request['listing_import_source'] : '';
 
@@ -48,6 +48,7 @@ class Listings_Importer {
             'posts' => $posts,
             'atts' => $atts,
             'request' => $request,
+            'post_meta' => get_post_meta( $posts[0]->ID ),
         ]);
 
         if ( empty( $posts ) ) {

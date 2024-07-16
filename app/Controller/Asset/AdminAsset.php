@@ -92,6 +92,11 @@ class AdminAsset extends AssetEnqueuer {
 			'ver'       => $this->script_version,
 			'group'     => 'admin',
 			'page'      => [ 'posts_page_tools', 'at_biz_dir_page_tools' ],
+			'data'		=> [
+				'directorist_wilcity' => [
+					'ajaxurl' => admin_url('admin-ajax.php'),
+				]
+			]
 		];
 
 		$scripts['wilcity-to-directorist-migrator-service-integration-wilcity-all-listings-page'] = [
