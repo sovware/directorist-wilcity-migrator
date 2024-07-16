@@ -15,6 +15,12 @@ class Listings_Importer {
      */
     public function __construct() {
         add_filter( 'directorist_listings_importing_posts', [ $this, 'listings_importing_posts' ], 20, 4 );
+        add_filter( 'wp_ajax_directorist_import_listing', [ $this, 'directorist_import_listing' ] );
+    }
+
+
+    public function directorist_import_listing() {
+        
     }
 
 
